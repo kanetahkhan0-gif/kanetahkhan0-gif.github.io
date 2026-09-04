@@ -3,7 +3,7 @@
 Ink on paper. Plain HTML, CSS and vanilla JavaScript — no framework, no npm, no
 build step. Clone it, open `index.html`, done.
 
-**Live:** https://kanetahkhan.github.io *(update once Pages is on)*
+**Live:** [https://kanetahkhan.github.io](https://kanetahkhan0-gif.github.io) *(update once Pages is on)*
 
 ---
 
