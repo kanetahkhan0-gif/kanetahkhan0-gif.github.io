@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Kanetah Khan — Software Engineering @ IUT '28</title>
+<meta name="description" content="Kanetah Khan (chichi) — Software Engineering student at Islamic University of Technology, Bangladesh. Bengali LLM hallucination detection, rover autonomy, games, and drawings.">
+<meta name="author" content="Kanetah Khan">
+<meta name="theme-color" content="#f7f6f1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kanetah Khan — Software Engineering @ IUT '28">
+<meta property="og:description" content="I make things that shouldn't work, then debug until they do.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f7f6f1'/%3E%3Cpath d='M9 6v20M9 17l10-11M9 17l11 9' stroke='%2316130f' stroke-width='3.2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=Shantell+Sans:wght@400;600;700&display=swap">
+
+<!-- base.css alone is a readable document. decor.css is the paper, tape and ink. -->
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/decor.css">
+</head>
+
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="topnav" aria-label="Sections">
+  <ul>
+    <li><a href="#work">the wall</a></li>
+    <li><a href="#crew">the crew</a></li>
+    <li><a href="#scribbles">scribbles</a></li>
+    <li><a href="#achievements">achievements</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#education">education</a></li>
+    <li><a href="#beyond">beyond code</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     EDIT ME — the hero is plain HTML on purpose.
+
+     Everything else on this page is generated from data.js. This block isn't,
+     because it has to survive a JS failure: your name, what you do, and how
+     to reach you are the parts that must never disappear. Change the wording
+     here, not in data.js.
+     ════════════════════════════════════════════════════════════════════════ -->
+<header class="hero" id="top">
+  <div class="hero-text">
+    <p class="eyebrow">Software Engineering @ IUT '28</p>
+
+    <h1 class="hero-name">Kanetah&nbsp;Khan <span class="alias">“chichi”</span></h1>
+
+    <!-- <del> and <ins> are the correct semantic pair for a correction, so the
+         joke still reads as a correction with CSS switched off. -->
+    <p class="bio">
+      I make things that shouldn't work, then
+      <span class="fix"><del>pray</del><ins>debug</ins></span>
+      until they do.
+    </p>
+
+    <p class="bio-more">
+      Software Engineering undergrad at the Islamic University of Technology, Dhaka.
+      Mostly found wrangling language models into telling the truth, teaching rovers
+      where to drive, or losing to a Codeforces problem at 2am.
+    </p>
+
+    <section class="contact-block" aria-labelledby="contact-h">
+      <h2 id="contact-h" class="contact-h">Reach me</h2>
+      <ul class="contact-list">
+        <li><a href="mailto:kanetahkhan0@gmail.com">
+          <b>Email</b><span>kanetahkhan0@gmail.com</span></a></li>
+        <li><a href="https://github.com/KanetahKhan" rel="me noopener" target="_blank">
+          <b>GitHub</b><span>github.com/KanetahKhan</span></a></li>
+        <li><a href="https://www.linkedin.com/in/kanetah-khan-572257394/" rel="me noopener" target="_blank">
+          <b>LinkedIn</b><span>linkedin.com/in/kanetah-khan-572257394</span></a></li>
+      </ul>
+    </section>
+  </div>
+
+  <figure class="hero-portrait">
+    <img id="heroDoodle" src="assets/art/doodle-01.png" alt="Self-portrait doodle" width="320" height="320">
+    <figcaption>me, allegedly</figcaption>
+  </figure>
+</header>
+
+<main id="main">
+
+  <!-- ===== THE WALL ===== -->
+  <section id="work" class="band">
+    <header class="band-head">
+      <h2>The Wall</h2>
+      <p>Everything I've built, framed and hung. Open a frame for the long version.</p>
+    </header>
+    <div class="wall" id="workMount"></div>
+  </section>
+
+  <!-- ===== THE CREW ===== -->
+  <section id="crew" class="band band-crew">
+    <header class="band-head">
+      <h2>The Crew</h2>
+      <p>The people who made university survivable. Flip a card for their clip.</p>
+    </header>
+    <div class="deck-wrap">
+      <div class="deck" id="crewMount"></div>
+    </div>
+    <p class="deck-hint" id="deckHint" hidden>Swipe, or use ← →. Tap a card to flip it.</p>
+  </section>
+
+  <!-- ===== SCRIBBLES ===== -->
+  <section id="scribbles" class="band">
+    <header class="band-head">
+      <h2>Scribbles</h2>
+      <p>Drawings. No professional value whatsoever.</p>
+    </header>
+    <div class="pinboard" id="scribbleMount"></div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements" class="band">
+    <header class="band-head">
+      <h2>Achievements</h2>
+      <p>Receipts.</p>
+    </header>
+    <div class="shelf" id="achMount"></div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="band">
+    <header class="band-head">
+      <h2>Skills</h2>
+      <p>Grouped, and without percentage bars. Nobody is 87% good at Python.</p>
+    </header>
+    <div class="skills" id="skillMount"></div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="band">
+    <header class="band-head">
+      <h2>Education</h2>
+      <p>Where the studying happens.</p>
+    </header>
+    <div class="edu" id="eduMount"></div>
+  </section>
+
+  <!-- ===== BEYOND CODE ===== -->
+  <section id="beyond" class="band">
+    <header class="band-head">
+      <h2>Beyond Code</h2>
+      <p>The rest of it.</p>
+    </header>
+    <div class="corkboard" id="beyondMount"></div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="foot-inner">
+    <p class="foot-name">Kanetah Khan</p>
+    <ul class="contact-list foot-contact">
+      <li><a href="mailto:kanetahkhan0@gmail.com"><b>Email</b><span>kanetahkhan0@gmail.com</span></a></li>
+      <li><a href="https://github.com/KanetahKhan" rel="me noopener" target="_blank"><b>GitHub</b><span>github.com/KanetahKhan</span></a></li>
+      <li><a href="https://www.linkedin.com/in/kanetah-khan-572257394/" rel="me noopener" target="_blank"><b>LinkedIn</b><span>linkedin.com/in/kanetah-khan-572257394</span></a></li>
+    </ul>
+
+    <p class="foot-actions">
+      <a class="btn" href="assets/cv.pdf" download>Download CV</a>
+      <a class="btn" href="https://github.com/KanetahKhan/KanetahKhan.github.io" target="_blank" rel="noopener">Source on GitHub</a>
+    </p>
+
+    <p class="stamp" aria-label="Drawn by hand, coded with AI">
+      <span>drawn by hand</span><span>coded with AI</span>
+    </p>
+  </div>
+</footer>
+
+<!-- ===== THE SCROLL PAYOFF — past the footer, for whoever got this far ===== -->
+<aside class="payoff" id="payoff" aria-label="A small reward for scrolling this far">
+  <div class="payoff-inner">
+    <p class="payoff-say" id="payoffSay">oh. you actually made it all the way down.</p>
+    <button class="payoff-guy" id="payoffGuy" type="button" aria-describedby="payoffSay">
+      <img src="assets/art/doodle-10.png" alt="Small drawn creature. Click for another line." width="180" height="180">
+    </button>
+    <p class="payoff-end">the end · <a href="#top">back to the top</a></p>
+  </div>
+</aside>
+
+<!-- Project modal. <dialog> gives focus trapping and Esc for free. -->
+<dialog class="modal" id="modal" aria-labelledby="modalTitle">
+  <button class="modal-x" id="modalClose" type="button" aria-label="Close">✕</button>
+  <div class="modal-body" id="modalBody"></div>
+</dialog>
+
+<!-- Scribble lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged drawing" hidden>
+  <button class="lb-x" id="lbClose" type="button" aria-label="Close">✕</button>
+  <figure>
+    <div id="lbMedia"></div>
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<noscript>
+  <p class="noscript">
+    The lists on this page are built from <code>data.js</code> with JavaScript, so with
+    JS switched off you're seeing the skeleton — but everything above this line is real:
+    that's my name, my course, and my actual contact details. The full content is readable
+    in <code>data.js</code> in the repo:
+    <a href="https://github.com/KanetahKhan">github.com/KanetahKhan</a>.
+  </p>
+</noscript>
+
+<script src="data.js"></script>
+<script src="js/doodles.js"></script>
+<script src="js/render.js"></script>
+<script src="js/enhance.js"></script>
+</body>
+</html>

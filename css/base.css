@@ -1,0 +1,365 @@
+/* ============================================================================
+   base.css — the document layer.
+
+   This file alone is a clean, readable page: type, spacing, links, focus.
+   No rotation, no paper, no fan, no 3D. If decor.css never loads, or an
+   enhancement throws, everything here still reads properly.
+
+   The decoration lives in decor.css.
+   ============================================================================ */
+
+/* ---------------------------------------------------------------- TOKENS -- */
+:root{
+  --paper:#f7f6f1;
+  --paper-2:#fffefa;      /* cards and frames sit slightly brighter */
+  --ink:#16130f;
+  --graphite:#57514a;
+  --faint:rgba(22,19,15,.14);
+  --red:#c8332e;          /* corrections, pins, the margin */
+  --blue:#2f4bb0;         /* links */
+  --sticky-1:#ffe9a3;
+  --sticky-2:#ffcfd8;
+  --sticky-3:#c9ecd7;
+  --sticky-4:#cfe0ff;
+  --gold:#d6a53a;
+  --silver:#aeb2b6;
+  --bronze:#b37a44;
+
+  --display:"Shantell Sans","Comic Sans MS",cursive;
+  --hand:"Caveat","Bradley Hand",cursive;
+  --body:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:ui-monospace,"SF Mono",Consolas,"DejaVu Sans Mono",monospace;
+
+  --shell:1140px;
+  --pad:clamp(1.15rem,5vw,3rem);
+  --band:clamp(3.5rem,9vw,6.5rem);
+  --r:4px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:clamp(1rem,.35vw + .94rem,1.05rem);
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.06;margin:0}
+p{margin:0 0 1rem}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:2px}
+
+.skip{position:absolute;left:-9999px;top:0;z-index:300;
+  background:var(--ink);color:var(--paper);padding:.7rem 1.1rem;font-size:.85rem}
+.skip:focus{left:.75rem;top:.75rem}
+
+/* ---------------------------------------------------------------- LAYOUT -- */
+.hero,.band,.foot-inner,.payoff-inner{
+  max-width:var(--shell);margin-inline:auto;padding-inline:var(--pad);
+}
+.band{padding-block:var(--band)}
+.band-head{max-width:46rem;margin:0 0 2.5rem}
+.band-head h2{font-size:clamp(2rem,6.5vw,3.2rem)}
+.band-head p{margin:.7rem 0 0;font-family:var(--hand);font-size:1.35rem;
+  line-height:1.3;color:var(--graphite)}
+
+/* ------------------------------------------------------------------ NAV -- */
+.topnav{border-bottom:1px solid var(--faint)}
+.topnav ul{
+  max-width:var(--shell);margin-inline:auto;padding:.55rem var(--pad);
+  list-style:none;display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;
+}
+.topnav ul::-webkit-scrollbar{display:none}
+.topnav a{
+  display:block;white-space:nowrap;text-decoration:none;color:var(--graphite);
+  font-family:var(--hand);font-size:1.2rem;font-weight:700;padding:.3rem .6rem;
+}
+.topnav a:hover,.topnav a[aria-current="true"]{color:var(--ink)}
+
+/* ----------------------------------------------------------------- HERO -- */
+.hero{padding-block:clamp(2.5rem,8vw,5rem) clamp(2rem,6vw,4rem);
+  display:grid;gap:2rem;align-items:start}
+@media (min-width:860px){ .hero{grid-template-columns:1fr 320px} }
+
+.eyebrow{
+  margin:0 0 .9rem;font-family:var(--mono);font-size:.74rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--red);
+}
+.hero-name{font-size:clamp(2.6rem,10vw,5rem);letter-spacing:-.01em}
+.alias{
+  display:inline-block;font-family:var(--hand);font-weight:700;
+  font-size:.42em;color:var(--graphite);vertical-align:middle;
+}
+.bio{margin:1.3rem 0 0;font-family:var(--display);font-size:clamp(1.25rem,3.4vw,1.7rem);
+  line-height:1.35;max-width:24ch}
+.bio-more{margin:1rem 0 0;max-width:48ch;color:var(--graphite)}
+
+/* the correction gag. <del> and <ins> already mean this semantically. */
+.fix{position:relative;white-space:nowrap}
+.fix del{text-decoration:none;color:var(--graphite);opacity:.8}
+.fix ins{text-decoration:none;font-family:var(--hand);color:var(--red)}
+
+.hero-portrait{margin:0}
+.hero-portrait img{width:min(320px,72vw)}
+.hero-portrait figcaption{
+  font-family:var(--hand);font-size:1.2rem;color:var(--graphite);margin-top:.4rem;
+}
+
+/* -------------------------------------------------------------- CONTACT -- */
+.contact-block{margin:2rem 0 0}
+.contact-h{
+  font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--graphite);margin:0 0 .75rem;
+}
+.contact-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.contact-list a{
+  display:flex;align-items:baseline;gap:.45rem;text-decoration:none;color:var(--ink);
+  border:2px solid var(--ink);border-radius:var(--r);padding:.5rem .8rem;background:var(--paper-2);
+}
+.contact-list b{font-size:.9rem}
+.contact-list span{font-family:var(--mono);font-size:.72rem;color:var(--graphite)}
+
+/* ------------------------------------------------------------- THE WALL -- */
+.wall{display:grid;gap:2.4rem 1.8rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,15.5rem),1fr))}
+.tile{margin:0;display:flex;flex-direction:column}
+.tile-open{
+  display:block;width:100%;padding:0;border:none;background:none;
+  font:inherit;color:inherit;text-align:left;cursor:pointer;
+}
+.tile-art{aspect-ratio:4/3;background:var(--paper-2);overflow:hidden;position:relative}
+
+/* gallery frames stack on top of each other; one is visible at a time */
+.gal-frame{position:absolute;inset:0;opacity:0}
+.gal-frame.is-on{opacity:1}
+.tile-art img{width:100%;height:100%;object-fit:cover}
+
+/* drawn art, used when a project has no cover image */
+.tile-doodle{width:100%;height:100%;background:var(--paper-2)}
+.tile-doodle svg{width:100%;height:100%;display:block}
+.tile-doodle .d-blob{fill:var(--blob,var(--sticky-1))}
+.tile-doodle .d-ink{fill:none;stroke:var(--ink);stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round}
+.tile-doodle .d-fill{fill:var(--ink);stroke:none}
+
+/* the same drawn art standing in for the hero portrait and the payoff creature */
+.hero-doodle,.payoff-doodle{width:100%}
+.hero-doodle svg,.payoff-doodle svg{width:100%;height:auto;display:block}
+.hero-doodle .d-blob{fill:var(--blob,var(--sticky-1))}
+.hero-doodle .d-ink{fill:none;stroke:var(--ink);stroke-width:2.2;
+  stroke-linecap:round;stroke-linejoin:round}
+.hero-doodle .d-fill{fill:var(--ink);stroke:none}
+.hero-doodle{width:min(320px,72vw)}
+/* the payoff sits on ink, so the creature is drawn in paper and skips the blob */
+.payoff-doodle{width:min(180px,44vw);margin-inline:auto}
+.payoff-doodle .d-blob{display:none}
+.payoff-doodle .d-ink{fill:none;stroke:var(--paper);stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round}
+.payoff-doodle .d-fill{fill:var(--paper);stroke:none}
+.tile-plate{padding:.7rem .2rem 0}
+.tile-plate h3{font-size:1.05rem;line-height:1.25}
+.tile-plate p{margin:.3rem 0 0;font-family:var(--hand);font-size:1.15rem;
+  line-height:1.25;color:var(--graphite)}
+.tile-year{font-family:var(--mono);font-size:.68rem;color:var(--graphite)}
+/* no-JS / pre-enhancement fallback: the long copy is a real <details> */
+.tile-fallback{margin:.5rem 0 0;font-size:.92rem}
+.tile-fallback summary{cursor:pointer;color:var(--blue);font-size:.85rem}
+
+/* -------------------------------------------------------------- MODAL -- */
+.modal{
+  border:2px solid var(--ink);border-radius:var(--r);padding:0;
+  max-width:min(46rem,92vw);background:var(--paper-2);color:var(--ink);
+}
+.modal::backdrop{background:rgba(22,19,15,.6)}
+.modal-body{padding:2rem clamp(1.2rem,4vw,2.4rem) 2.2rem}
+.modal-body h3{font-size:clamp(1.5rem,4vw,2.1rem);padding-right:2rem}
+.modal-body .m-hook{margin:.5rem 0 0;font-family:var(--hand);font-size:1.35rem;color:var(--graphite)}
+.modal-body .m-about{margin:1.1rem 0 0}
+.modal-x{
+  position:absolute;top:.6rem;right:.6rem;width:40px;height:40px;
+  border:2px solid var(--ink);border-radius:50%;background:var(--paper);
+  cursor:pointer;font-size:1rem;line-height:1;
+}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:.35rem;margin:1.2rem 0 0;padding:0}
+.chips li{font-family:var(--mono);font-size:.7rem;padding:.22rem .55rem;
+  border:1px solid var(--faint);border-radius:2px;background:var(--sticky-1)}
+.m-links{display:flex;flex-wrap:wrap;gap:1rem;margin:1.2rem 0 0}
+.m-links a{font-family:var(--mono);font-size:.78rem;font-weight:700}
+
+/* --------------------------------------------------------------- CREW -- */
+/* Base: a swipeable strip. Works on every device with no JS at all.
+   decor.css upgrades wide screens to a fanned hand. */
+.deck-wrap{overflow:hidden}
+.deck{
+  display:flex;gap:1.2rem;padding:.5rem .2rem 1.5rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin;
+}
+.crew-card{flex:0 0 min(15rem,74vw);scroll-snap-align:center}
+.card-inner{height:100%}
+.card-face{
+  background:var(--paper-2);border:2px solid var(--ink);border-radius:6px;
+  padding:1rem .9rem 1.1rem;height:100%;
+}
+.card-portrait{aspect-ratio:1/1;background:var(--paper);overflow:hidden;margin-bottom:.7rem}
+.card-portrait img{width:100%;height:100%;object-fit:cover}
+.card-role{font-family:var(--hand);font-size:1.3rem;color:var(--red);line-height:1.15}
+.card-name{font-size:1.15rem;margin:.15rem 0 0}
+.card-stat{margin:.5rem 0 0;font-size:.88rem;color:var(--graphite);line-height:1.4}
+.card-since{font-family:var(--mono);font-size:.65rem;color:var(--graphite)}
+.card-back{margin-top:.8rem}          /* stacked below the front until JS flips it */
+.card-back .reel{background:#000;aspect-ratio:9/16;position:relative;overflow:hidden}
+.card-back .reel video{width:100%;height:100%;object-fit:cover;display:block}
+.flip-btn{
+  margin-top:.7rem;font:inherit;font-size:.8rem;cursor:pointer;
+  background:var(--paper);border:2px solid var(--ink);border-radius:var(--r);padding:.35rem .7rem;
+}
+.deck-hint{font-family:var(--hand);font-size:1.15rem;color:var(--graphite);
+  margin:.2rem 0 0;padding-inline:var(--pad);max-width:var(--shell);
+  margin-inline:auto}
+
+/* custom unmute control on the reel */
+.sound-btn{
+  position:absolute;right:.5rem;bottom:.5rem;z-index:2;
+  width:38px;height:38px;border-radius:50%;cursor:pointer;
+  border:2px solid var(--ink);background:var(--paper-2);
+  display:grid;place-items:center;padding:0;
+}
+.sound-btn svg{width:17px;height:17px;fill:var(--ink)}
+
+/* clip failure state — required, and it happens more than you'd think */
+.reel-fail{
+  background:var(--paper);border:2px dashed var(--ink);aspect-ratio:9/16;
+  display:grid;place-content:center;gap:.5rem;text-align:center;padding:1rem;
+}
+.reel-fail p{font-family:var(--hand);font-size:1.2rem;margin:0;line-height:1.2}
+.reel-fail button{font:inherit;font-size:.8rem;cursor:pointer;
+  border:2px solid var(--ink);background:var(--sticky-1);border-radius:var(--r);padding:.3rem .7rem}
+.reel-fail a{font-family:var(--mono);font-size:.68rem;word-break:break-all}
+
+/* ----------------------------------------------------------- SCRIBBLES -- */
+.pinboard{columns:3 14rem;column-gap:1.4rem}
+.scrib{
+  break-inside:avoid;margin:0 0 1.4rem;width:100%;display:block;
+  background:var(--paper-2);border:1px solid var(--faint);padding:.6rem .6rem .2rem;
+  font:inherit;color:inherit;text-align:left;cursor:pointer;
+}
+.scrib img{width:100%}
+.scrib figcaption{font-family:var(--hand);font-size:1.12rem;color:var(--graphite);
+  padding:.35rem .1rem .3rem;line-height:1.2}
+
+.lightbox{position:fixed;inset:0;z-index:200;display:grid;place-items:center;
+  padding:clamp(1rem,4vw,3rem);background:rgba(18,16,13,.92)}
+.lightbox[hidden]{display:none}
+.lightbox figure{margin:0;text-align:center}
+.lightbox img{max-width:100%;max-height:78vh;width:auto;border:10px solid var(--paper-2)}
+.lightbox figcaption{font-family:var(--hand);font-size:1.35rem;color:var(--paper);margin-top:.9rem}
+.lb-x{position:absolute;top:1rem;right:1rem;width:44px;height:44px;border-radius:50%;
+  border:none;background:var(--paper-2);cursor:pointer;font-size:1.05rem}
+
+/* -------------------------------------------------------- ACHIEVEMENTS -- */
+.shelf{display:grid;gap:1.6rem 1.2rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,12.5rem),1fr))}
+.trophy{text-align:center;background:var(--paper-2);border:2px solid var(--ink);
+  border-radius:var(--r) var(--r) 0 0;padding:1.3rem .8rem 1rem}
+.medal{width:52px;height:52px;border-radius:50%;margin:0 auto .7rem;
+  border:2px solid rgba(0,0,0,.28)}
+.medal.gold{background:var(--gold)}
+.medal.silver{background:var(--silver)}
+.medal.bronze{background:var(--bronze)}
+.medal.ink{background:var(--blue)}
+.trophy h3{font-size:1.1rem}
+.trophy p{margin:.35rem 0 0;font-size:.85rem;color:var(--graphite);line-height:1.35}
+.trophy .yr{display:block;font-family:var(--mono);font-size:.68rem;color:var(--red);margin-top:.3rem}
+
+/* -------------------------------------------------------------- SKILLS -- */
+.skills{display:grid;gap:1.7rem;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))}
+.skill-group h3{font-family:var(--mono);font-size:.72rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--graphite);margin:0 0 .7rem}
+.skill-group ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.skill-group li{border:2px solid var(--ink);border-radius:18px;padding:.3rem .75rem;
+  background:var(--paper-2);font-size:.88rem;font-weight:500}
+
+/* ----------------------------------------------------------- EDUCATION -- */
+.edu{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr))}
+.index-card{background:var(--paper-2);border:1px solid var(--faint);
+  border-left:5px solid var(--red);padding:1.4rem 1.2rem}
+.index-card h3{font-size:1.1rem;line-height:1.3}
+.index-card .cred{margin:.3rem 0 0;font-family:var(--hand);font-size:1.3rem}
+.index-card .when{font-family:var(--mono);font-size:.7rem;color:var(--blue)}
+.index-card .detail{margin:.3rem 0 0;font-size:.88rem;color:var(--graphite)}
+
+/* --------------------------------------------------------- BEYOND CODE -- */
+.corkboard{display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,12.5rem),1fr))}
+.note{background:var(--sticky-1);padding:1rem .95rem 1.2rem;color:var(--ink)}
+.note:nth-child(4n+2){background:var(--sticky-2)}
+.note:nth-child(4n+3){background:var(--sticky-3)}
+.note:nth-child(4n+4){background:var(--sticky-4)}
+.note h3{font-size:1rem}
+.note p{margin:.45rem 0 0;font-family:var(--hand);font-size:1.15rem;line-height:1.25}
+
+/* -------------------------------------------------------------- FOOTER -- */
+.site-foot{border-top:1px solid var(--faint);padding-block:clamp(2.5rem,6vw,4rem)}
+.foot-name{font-family:var(--display);font-size:clamp(1.6rem,4.5vw,2.2rem);margin:0 0 1rem}
+.foot-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.3rem 0 0}
+.btn{display:inline-block;text-decoration:none;color:var(--ink);
+  border:2px solid var(--ink);border-radius:var(--r);padding:.55rem .95rem;
+  background:var(--sticky-1);font-size:.85rem;font-weight:600}
+.stamp{display:inline-block;margin:1.6rem 0 0;border:2px solid var(--red);
+  border-radius:var(--r);padding:.4rem .7rem;color:var(--red);
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase}
+.stamp span+span::before{content:" · "}
+
+/* -------------------------------------------------------------- PAYOFF -- */
+.payoff{background:var(--ink);color:var(--paper);padding-block:clamp(3rem,8vw,5rem)}
+.payoff-inner{text-align:center}
+.payoff-say{font-family:var(--hand);font-size:clamp(1.4rem,4vw,2rem);
+  min-height:2.6em;margin:0 auto 1rem;max-width:26ch}
+.payoff-guy{background:none;border:none;padding:0;cursor:pointer;display:inline-block}
+.payoff-guy img{width:min(180px,44vw);margin-inline:auto}
+.payoff-end{margin:1.5rem 0 0;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(247,246,241,.6)}
+.payoff-end a{color:inherit}
+
+/* placeholder shown wherever an asset file isn't there yet */
+.ph{display:grid;place-content:center;gap:.35rem;text-align:center;padding:1rem;
+  min-height:100%;background:var(--paper);border:1px dashed var(--faint)}
+.ph span{font-family:var(--hand);font-size:1.05rem;color:var(--graphite);line-height:1.15}
+.ph b{font-family:var(--mono);font-size:.6rem;color:var(--graphite);word-break:break-all}
+
+.noscript{max-width:var(--shell);margin-inline:auto;padding:1.5rem var(--pad);
+  font-family:var(--hand);font-size:1.25rem}
+
+/* ---------------------------------------------------------- RESPONSIVE -- */
+@media (max-width:640px){
+  .pinboard{columns:2 8rem;column-gap:.9rem}
+}
+@media (max-width:400px){
+  .pinboard{columns:1}
+}
+
+/* ------------------------------------------------------- REDUCED MOTION -- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------- PRINT -- */
+@media print{
+  .topnav,.payoff,.modal,.lightbox,.deck-hint,.stamp{display:none !important}
+  body{background:#fff}
+  .band{padding-block:1rem;break-inside:avoid}
+  .deck{overflow:visible;flex-wrap:wrap}
+  .tile,.trophy,.note,.index-card,.crew-card{break-inside:avoid}
+}

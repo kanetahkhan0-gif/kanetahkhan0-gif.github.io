@@ -1,0 +1,77 @@
+KANETAH KHAN — PORTFOLIO
+========================
+
+You just unzipped this. Do these five things, in order.
+
+
+1. CHECK IT WORKS
+   Double-click index.html. It should open in your browser and look like
+   ink on paper: your name, 12 framed project tiles, 4 crew cards, and
+   dashed boxes where your drawings will go.
+
+   If you get a blank or unstyled page, the folder structure got flattened
+   during unzip. index.html needs css/ and js/ as subfolders next to it.
+
+
+2. LINKEDIN - ALREADY DONE
+   Your real profile is wired into index.html in both places (hero and
+   footer). Nothing to do.
+
+   Optional polish: your profile URL still ends in LinkedIn's auto-generated
+   number. Settings > Edit public profile & URL lets you claim a clean one.
+   linkedin.com/in/kanetah-khan looks much better on a portfolio than
+   ...-572257394. If you change it, update both spots in index.html.
+
+
+3. NAME YOUR CREW
+   Open data.js. Search for "Name goes here" - four of them, in the crew
+   section. Replace each with a real name.
+
+   Ask each person first. Their face, their voice and a job title you made
+   up are going on a public page under your name.
+
+
+4. PUSH IT TO GITHUB
+   Create a PUBLIC repo named exactly:  KanetahKhan.github.io
+   Do NOT let GitHub add a README or .gitignore - it'll block your push.
+
+   Then, in a terminal inside this folder:
+
+       git init
+       git add .
+       git commit -m "Portfolio site"
+       git branch -M main
+       git remote add origin https://github.com/KanetahKhan/KanetahKhan.github.io.git
+       git push -u origin main
+
+
+5. TURN ON GITHUB PAGES
+   Repo > Settings > Pages
+   Source: "Deploy from a branch"
+   Branch: main   Folder: / (root)
+   Save.
+
+   Live at https://kanetahkhan.github.io in about a minute.
+
+
+ONE THING TO WATCH
+------------------
+There's a file called  .nojekyll  in this folder. It's empty, and it's
+hidden by default on macOS (press Cmd+Shift+. to see it) and on Linux.
+GitHub Pages needs it. You don't have to see it - "git add ." picks it up
+either way - but if you rebuild this folder by hand, don't lose it.
+
+
+WHAT TO EDIT LATER
+------------------
+data.js       every project, person, drawing, achievement, skill.
+              Adding a project = appending one object. Nothing else.
+
+index.html    your name, bio and contact row (marked EDIT ME).
+              These are hardcoded on purpose so they survive a JS failure.
+
+assets/       your images and clips. Each subfolder has a README listing
+              exactly which files it expects. assets/art/README.md
+              describes all 10 doodles and what to draw for each.
+
+README.md     the long version of everything above.

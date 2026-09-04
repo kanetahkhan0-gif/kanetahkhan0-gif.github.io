@@ -1,0 +1,10 @@
+# OS junk that shouldn't be in a public repo
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# editor
+.vscode/
+.idea/
+*.swp
